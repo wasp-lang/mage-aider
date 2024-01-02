@@ -23,7 +23,7 @@ export const editPost = async ({ id, title, content }, context) => {
 }
 
 export const createComment = async ({ postId, text }, context) => {
-  if (!context.user) { throw new HttpError(401); }
+  if (!context.user) throw new HttpError(401, 'User not authenticated');
 
   const parsedPostId = parseInt(postId);
   if (isNaN(parsedPostId)) throw new HttpError(400, 'Invalid post ID');

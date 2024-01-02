@@ -11,6 +11,7 @@ const ViewPostPage = () => {
   const createCommentFn = useAction(createComment);
   const [commentText, setCommentText] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const { user } = useAuth(); // Assuming useAuth is a hook that provides user authentication status
 
   if (isLoading) return 'Loading...';
   if (error) return 'Error: ' + error;
@@ -38,7 +39,9 @@ const ViewPostPage = () => {
       </div>
       <div className='mt-6'>
         <h2 className='text-xl font-semibold'>Leave a comment</h2>
-        <textarea
+        {user && (
+          <>
+            <textarea
           className='w-full p-2 border rounded-lg my-2'
           rows='3'
           placeholder='Type your comment here...'
@@ -52,6 +55,11 @@ const ViewPostPage = () => {
         >
           Post Comment
         </button>
+          </>
+        )}
+        {!user && (
+          <p>You must be logged in to post comments.</p>
+        )}
       </div>
     </div>
   );
