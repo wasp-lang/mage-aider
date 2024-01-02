@@ -12,11 +12,12 @@ const ViewPostPage = () => {
   const createCommentFn = useAction(createComment);
   const [commentText, setCommentText] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const { user } = useAuth(); // Assuming useAuth is a hook that provides user authentication status
+  const { data: user } = useAuth(); // Correctly destructure user data from useAuth
 
   if (isLoading) return 'Loading...';
   if (error) return 'Error: ' + error;
 
+  // ... rest of the component
   const handleCreateComment = async () => {
     setSubmitting(true);
     await createCommentFn({ postId, text: commentText });
