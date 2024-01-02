@@ -15,8 +15,11 @@ export const getPosts = async (args, context) => {
 }
 
 export const getPost = async ({ id }, context) => {
+  const postId = parseInt(id);
+  if (isNaN(postId)) throw new HttpError(400, 'Invalid post ID');
+
   const post = await context.entities.Post.findUnique({
-    where: { id },
+    where: { id: postId },
     include: {
       author: true,
       comments: {
