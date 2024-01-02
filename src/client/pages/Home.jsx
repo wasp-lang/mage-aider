@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@wasp/queries';
 import getPosts from '@wasp/queries/getPosts';
-import { useAuth } from '@wasp/auth';
+import useAuth from '@wasp/auth/useAuth';
 
 const HomePage = () => {
   const { data: posts, isLoading, error } = useQuery(getPosts);
