@@ -15,6 +15,9 @@ export const Layout = ({ children }) => {
           </Link>
           <div>
             <Link to="/" className="text-xl2 font-semibold mr-4">Home</Link>
+            <Link to="/new-post" className="text-xl2 font-semibold mr-4">New Post</Link>
+            <Link to="/login" className="text-xl2 font-semibold mr-4">Login</Link>
+            <Link to="/signup" className="text-xl2 font-semibold">Signup</Link>
           </div>
           { user ? (
             <span>
