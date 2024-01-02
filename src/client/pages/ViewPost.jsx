@@ -1,4 +1,4 @@
-import { useAuth } from '@wasp/auth/useAuth';
+import useAuth from '@wasp/auth/useAuth';
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@wasp/queries';
