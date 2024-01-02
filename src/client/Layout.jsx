@@ -13,6 +13,11 @@ export const Layout = ({ children }) => {
           <Link to="/">
             <h1 className="text-xl2 font-semibold">Blog</h1>
           </Link>
+          <div>
+            <Link to="/" className="text-xl2 font-semibold mr-4">Home</Link>
+            <Link to="/about" className="text-xl2 font-semibold mr-4">About</Link>
+            <Link to="/contact" className="text-xl2 font-semibold">Contact</Link>
+          </div>
           { user ? (
             <span>
               Hi, {user.username}!{' '}
@@ -39,4 +44,5 @@ export const Layout = ({ children }) => {
       </footer>
     </div>
   );
+};
 };
