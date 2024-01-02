@@ -1,3 +1,4 @@
+import { useAuth } from '../hooks/auth'; // Adjust the path as necessary
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@wasp/queries';
