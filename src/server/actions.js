@@ -25,10 +25,13 @@ export const editPost = async ({ id, title, content }, context) => {
 export const createComment = async ({ postId, text }, context) => {
   if (!context.user) { throw new HttpError(401); }
 
+  const parsedPostId = parseInt(postId);
+  if (isNaN(parsedPostId)) throw new HttpError(400, 'Invalid post ID');
+
   const newComment = await context.entities.Comment.create({
     data: {
-      text: text,
-      postId: postId,
+      text,
+      postId: parsedPostId,
       authorId: context.user.id
     }
   });
