@@ -6,6 +6,11 @@ import getPosts from '@wasp/queries/getPosts';
 const HomePage = () => {
   const { data: posts, isLoading, error } = useQuery(getPosts);
 
+  // Log the posts to the console for debugging
+  React.useEffect(() => {
+    console.log('Posts:', posts);
+  }, [posts]);
+
   if (isLoading) return 'Loading...';
   if (error) return 'Error: ' + error;
 
